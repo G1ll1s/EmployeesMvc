@@ -4,17 +4,22 @@
 <!DOCTYPE html>
 <link rel="stylesheet" href="https://unpkg.com/@@picocss/pico@@latest/css/pico.classless.min.css">
 <html>
-    <head>
-        <title>ACME INTRO</title>
-    </head>
-    <h1>Anställda:</h1>
-    @foreach (var employee in Model)
-    {
-    <li>@employee.Name - @employee.Email</li>
-    }
+<head>
+    <title>ACME INTRO</title>
+</head>
+<h1>Anställda:</h1>
+@foreach (var employee in Model)
+{
+    <li>
+        <a asp-controller="employees" asp-action="details" asp-route-id="@employee.Id">
+            @employee.Name - @employee.Email
+        </a>
 
-    <body>
-        <a asp-controller="employees" asp-action="create">Lägg till anställd</a>
-    
-    </body>
-    </html>
+    </li>
+}
+
+<body>
+    <a asp-controller="employees" asp-action="create">Lägg till anställd</a>
+
+</body>
+</html>

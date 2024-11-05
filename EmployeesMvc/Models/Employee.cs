@@ -10,8 +10,12 @@ namespace EmployeesMvc.Models
         public string Name { get; set; }
 
         [Required(ErrorMessage = "Enter an E-mail")]
-        [EmailAddress(ErrorMessage = "Enter a valid E-mail")]
-        [Display(Name ="E-mail")]
+        [EmailAddress]
+        [Display(Name = "E-mail")]
         public string Email { get; set; }
+
+        [DataType(DataType.MultilineText)]
+        public string? Description { get; set; }
+
     }
 }

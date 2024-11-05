@@ -1,0 +1,22 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model EmployeesMvc.Models.Employee
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        Details
+    </title>
+    <link rel="stylesheet" href="https://unpkg.com/@@picocss/pico@@latest/css/pico.classless.min.css">
+</head>
+<body>
+    <h2>@Model.Name</h2>
+    <br />
+    <h2>@Model.Email</h2>
+    <h2>@Model.Description</h2>
+
+    <a asp-controller="employees" asp-action="index">
+        <button>Tillbaks</button>
+    </a>
+</body>
+</html>
