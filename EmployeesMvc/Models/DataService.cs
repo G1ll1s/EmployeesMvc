@@ -2,7 +2,7 @@
 {
     public class DataService
     {
-        private static List<Employee> employees = [
+        private List<Employee> employees = [
             new Employee { Id = 1, Name = "Oscar", Email = "Test@gmail.com" },
             new Employee { Id = 2, Name = "Juan", Email = "Juan@hotmail.com" },
             new Employee { Id = 2, Name = "Jonas", Email = "Jonas@hotmail.com" },
