@@ -1,16 +1,5 @@
-﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-@model EmployeesMvc.Models.Employee;
+﻿@model Employee
 
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>
-        Create
-    </title>
-    <link rel="stylesheet" href="https://unpkg.com/@@picocss/pico@@latest/css/pico.classless.min.css">
-</head>
-<body>
     <h2>Create</h2>
     <form asp-controller="employees" asp-action="create">
         <label asp-for="Name"></label>
@@ -31,6 +20,12 @@
     <div asp-validation-summary="All">
 
     </div>
-
-</body>
-</html>
+@section scripts
+    {
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.1.min.js"
+            asp-fallback-src="/scripts/lib/jquery/jquery.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.2/jquery.validate.min.js" 
+    asp-fallback-src="/scripts/lib/jquery-validate/jquery.validate.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/mvc/5.2.3/jquery.validate.unobtrusive.min.js" 
+    asp-fallback-src="/scripts/lib/jquery-validate-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
