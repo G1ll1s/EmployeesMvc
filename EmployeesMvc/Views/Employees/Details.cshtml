@@ -1,22 +1,13 @@
-﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-@model EmployeesMvc.Models.Employee
+﻿@model Employee
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>
-        Details
-    </title>
-    <link rel="stylesheet" href="https://unpkg.com/@@picocss/pico@@latest/css/pico.classless.min.css">
-</head>
-<body>
-    <h2>@Model.Name</h2>
-    <br />
-    <h2>@Model.Email</h2>
-    <h2>@Model.Description</h2>
+@{
+    ViewBag.Title = "Details";
+}
 
-    <a asp-controller="employees" asp-action="index">
-        <button>Tillbaks</button>
-    </a>
-</body>
-</html>
+<h1>@Model.Name</h1>
+<br />
+<h4>@Model.Email</h4>
+<p>@Model.Description</p>
+<a asp-controller="employees" asp-action="index">
+    <button>Tillbaks</button>
+</a>
