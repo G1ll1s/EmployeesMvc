@@ -4,12 +4,18 @@
 @{
 }
 <!DOCTYPE html>
-    <html>
-<link rel="stylesheet" href="https://unpkg.com/@@picocss/pico@@latest/css/pico.classless.min.css">
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="https://unpkg.com/@@picocss/pico@@latest/css/pico.classless.min.css">
 <head>
         <title>ACME Company</title>
-    </head>
-    <body>
+</head>
+<body>
     <header>Acme</header>
     
         <a asp-action="Index" asp-controller="employees">Home</a>
@@ -25,5 +31,5 @@
     </footer>
     @RenderSection("scripts", false)
 
-    </body>
-    </html>
+</body>
+</html>
