@@ -1,13 +1,14 @@
 ﻿namespace EmployeesMvc.Models
 {
-    public class DataService : IDataService
+    public class AnotherDataService : IDataService
     {
+
         private List<Employee> employees = [
-            new Employee { Id = 1, Name = "Oscar", Email = "Test@gmail.com", Description="multiline också"},
-            new Employee { Id = 2, Name = "Juan", Email = "Juan@hotmail.com", Description="bowling nånting"},
-            new Employee { Id = 3, Name = "Jonas", Email = "Jonas@hotmail.com", Description="fitness is my passion"},
+            new Employee { Id = 1, Name = "Test", Email = "testerson@gmail.com", Description="ping pingu pingu"},
+            new Employee { Id = 2, Name = "Fantasi", Email = "fantasi@hotmail.com", Description="fantasi rullar runt i mjuka kuddar"},
+            new Employee { Id = 3, Name = "Anton", Email = "anton@hotmail.com", Description="Supercoder number 1"},
             ];
-        int nextId = 0;
+        int nextId = 10;
 
         public Employee[] GetAllEmployees()
         {
@@ -24,7 +25,7 @@
 
         public void AddEmployee(Employee employee)
         {
-            employee.Id = nextId++;
+            employee.Id = ++nextId;
             employees.Add(employee);
         }
     }

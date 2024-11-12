@@ -1,11 +1,11 @@
 ﻿@model Employee
 
 
-    <h2>@Model.Name</h2>
-    <br />
-    <h2>@Model.Email</h2>
-    <h2>@Model.Description</h2>
+<h1>@Model.Name</h1>
+<br/>
+<h2>@Model.Email</h2>
+<p>@Model.Description</p>
 
-    <a asp-controller="employees" asp-action="index">
-        <button>Tillbaks</button>
-    </a>
+<a asp-controller="employees" asp-action="index">
+    <button>Tillbaks</button>
+</a>

@@ -5,7 +5,12 @@ namespace EmployeesMvc.Controllers
 {
     public class EmployeesController : Controller
     {
-        private static DataService _dataService = new DataService();
+        IDataService _dataService;
+
+        public EmployeesController(IDataService dataService)
+        {
+            _dataService = dataService;
+        }
 
         public IActionResult Index()
         {
@@ -13,11 +18,13 @@ namespace EmployeesMvc.Controllers
 
             return View(allEmployees);
         }
+
         [HttpGet("Create")]
         public IActionResult Create()
         {
             return View();
         }
+
         [HttpPost("Create")]
         public IActionResult Create(Employee employee)
         {

@@ -15,17 +15,17 @@
     <title>ACME Company</title>
 </head>
 <body>
-    <header>Acme</header>
-    
+    <header>
         <a asp-action="Index" asp-controller="employees">Home</a>
         <a asp-action="Create" asp-controller="employees">Create</a>
-
+    </header>
     
     <main>
         @RenderBody()
     </main>
+
     <footer>
-        <p>COPYRIGHT ACME</p>
+        <p>IT-Väst</p>
         <partial name="_TimeBox" model="DateTime.Now"/>
     </footer>
     @RenderSection("scripts", false)
