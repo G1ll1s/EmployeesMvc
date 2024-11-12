@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/@@picocss/pico@@latest/css/pico.classless.min.css">
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+
+    <a asp-controller="employees" asp-action="index"><h1>Employee manager</h1></a>
+
+    <header class="menu">
+        @if (IsSectionDefined("Header"))
+        {
+            @RenderSection("Header", false)
+        }
+        else
+        {
+            <a asp-controller="employees" asp-action="create">
+                <button>Lägg till anställd</button>
+            </a>
+            <a asp-controller="departments" asp-action="create">
+                <button>Lägg till avdelning</button>
+            </a>
+            <partial name="_TimeBoxPartial" model="DateTime.Now" />
+            <p style="font-size: 8px;" >(Om du undrade vad klockan VAR när du kom till denna sidan idk)</p>
+        }
+    </header>
+
+    <div>
+        @RenderBody()
+    </div>
+
+    <footer>
+        @if (IsSectionDefined("Footer"))
+        {
+            @RenderSection("Footer", false)
+        }
+        else
+        {
+            <p>&copy; Copyright</p>
+        }
+
+    </footer>
+    @RenderSection("scripts", false)
+
+</body>
+</html>

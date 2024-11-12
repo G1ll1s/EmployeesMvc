@@ -1,0 +1,35 @@
+﻿@model EmployeesMvc.Models.CreateDepartmentViewModel
+
+@{
+    ViewBag.Title = "Create department";
+}
+
+<h2>Create department</h2>
+<form asp-controller="departments" asp-action="create-department">
+
+    <label asp-for="@Model.Department.Name"></label>
+    <input asp-for="@Model.Department.Name" />
+    <span asp-validation-for="@Model.Department.Name"></span>
+
+    <div>
+        <label for="SelectedItems">Select Employees:</label>
+        <select asp-for="SelectedEmployeeIDs" multiple="multiple" class="form-control">
+            @foreach (var employee in Model.SelectableEmployees)
+            {
+                <option value="@employee.Id">@employee.Name</option>
+            }
+        </select>
+    </div>
+
+
+
+    <input type="submit" value="Create department" />
+
+</form>
+<div asp-validation-summary="All">
+</div>
+
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.7.1.min.js"
+        asp-fallback-src="/scripts/lib/jquery/jquery.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.2/jquery.validate.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/mvc/5.2.3/jquery.validate.unobtrusive.min.js"></script>

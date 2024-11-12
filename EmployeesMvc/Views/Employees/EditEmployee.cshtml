@@ -1,27 +1,23 @@
 ﻿@model EmployeesMvc.Models.Employee;
-@{
-    ViewBag.Title = "Index";
-}
 
-
-<h2>Create</h2>
-<form asp-controller="employees" asp-action="create">
+<form asp-controller="employees" asp-action="editemployee" method="post">
 
     <label asp-for="Name"></label>
-    <input asp-for="Name" />
+    <input asp-for="Name" value="@Model.Name" />
     <span asp-validation-for="Name"></span>
 
     <label asp-for="Email"></label>
-    <input asp-for="Email" />
+    <input asp-for="Email" value="@Model.Email" />
     <span asp-validation-for="Email"></span>
 
     <label asp-for="Description"></label>
-    <input asp-for="Description" />
+    <input asp-for="Description" value="@Model.Description" />
     <span asp-validation-for="Description"></span>
 
-    <input hidden asp-for="CreationTimeStamp" value="@DateTime.Now.ToString()"/>
+    <input hidden asp-for="Id" value="@Model.Id" />
+    <input hidden asp-for="CreationTimeStamp" value="@Model.CreationTimeStamp" />
 
-    <input type="submit" value="Create" />
+    <input type="submit" value="Ändra" />
 
 </form>
 <div asp-validation-summary="All">

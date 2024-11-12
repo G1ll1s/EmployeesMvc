@@ -1,22 +1,21 @@
-﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-@model EmployeesMvc.Models.Employee
+﻿@model EmployeesMvc.Models.Employee
+@{
+    ViewBag.Title = "Details";
+}
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>
-        Details
-    </title>
-    <link rel="stylesheet" href="https://unpkg.com/@@picocss/pico@@latest/css/pico.classless.min.css">
-</head>
-<body>
-    <h2>@Model.Name</h2>
-    <br />
-    <h2>@Model.Email</h2>
-    <h2>@Model.Description</h2>
+@section Header{
+    Och här gör jag en override på nav-headern 
+}
+<partial name="_EmployeePartial"></partial>
 
-    <a asp-controller="employees" asp-action="index">
-        <button>Tillbaks</button>
-    </a>
-</body>
-</html>
+<a asp-controller="employees" asp-action="index">
+    <button>Tillbaks</button>
+</a>
+
+<a asp-controller="employees" asp-action="editemployee" asp-route-id="@Model.Id">
+    <button>Ändra</button>
+</a>
+
+@section Footer{
+    <p>Gör lite av en section-override på footern här kommer det att fungera hm</p>
+}

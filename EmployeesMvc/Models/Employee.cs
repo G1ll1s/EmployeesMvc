@@ -16,6 +16,12 @@ namespace EmployeesMvc.Models
 
         [DataType(DataType.MultilineText)]
         public string? Description { get; set; }
+        public DateTime? CreationTimeStamp { get; set; }
 
+
+        public override string ToString()
+        {
+            return $"{Name}";
+        }
     }
 }
