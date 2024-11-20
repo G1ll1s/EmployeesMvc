@@ -1,4 +1,5 @@
 using EmployeesMvc.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace EmployeesMvc
 {
@@ -19,8 +20,12 @@ namespace EmployeesMvc
             // Singleton = En instans som lever hela livslängden av applikationen.
             // "static"
             //builder.Services.AddSingleton<IDataService, DataService>(); ////Databas 1
-            builder.Services.AddSingleton<IDataService, AnotherDataService>(); //Databas 2
+            //builder.Services.AddSingleton<IDataService, AnotherDataService>(); //Databas 2
 
+            builder.Services.AddTransient<IDataService, DataService>();
+
+            var connString = builder.Configuration.GetConnectionString("DefaultConnection");
+            builder.Services.AddDbContext<ApplicationContext>(o => o.UseSqlServer(connString));
 
             var app = builder.Build();
 

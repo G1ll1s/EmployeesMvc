@@ -3,18 +3,18 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EmployeesMvc.Controllers
 {
-    public class EmployeesController : Controller
+    public class EmployeesController(IDataService _dataService) : Controller
     {
-        IDataService _dataService;
+        //IDataService _dataService;
 
-        public EmployeesController(IDataService dataService)
-        {
-            _dataService = dataService;
-        }
+        //public EmployeesController(IDataService dataService)
+        //{
+        //    _dataService = dataService;
+        //}
 
-        public IActionResult Index()
+        public async Task<IActionResult> IndexAsync()
         {
-            var allEmployees = _dataService.GetAllEmployees();
+            var allEmployees = await _dataService.GetAllEmployeesAsync();
 
             return View(allEmployees);
         }
@@ -26,20 +26,19 @@ namespace EmployeesMvc.Controllers
         }
 
         [HttpPost("Create")]
-        public IActionResult Create(Employee employee)
+        public async Task<IActionResult> CreateAsync(Employee employee)
         {
-            if (!ModelState.IsValid)
-            {
+            if (!ModelState.IsValid)           
                 return View(employee);
-            }
-            _dataService.AddEmployee(employee);
-            return RedirectToAction(nameof(Index));
+            
+            await _dataService.AddEmployee(employee);
+            return RedirectToAction(nameof(IndexAsync).Replace("Async", string.Empty));
         }
 
         [HttpGet("details/{id}")]
-        public IActionResult Details(int id)
+        public async Task<IActionResult> DetailsAsync(int id)
         {
-            var employee = _dataService.GetEmployee(id);
+            var employee = await _dataService.GetEmployeeAsync(id);
             return View(employee);
         }
 
